@@ -2,8 +2,10 @@
 var mongoose = require('mongoose');
 var multer = require('multer');
 var formidable = require('formidable');
-var upload = multer({dest: DIR}).single('photo');
-var DIR = './uploads/';
+//var upload = multer({dest: DIR}).single('photo');
+//var DIR = './uploads/';
+var apikey   = 'b08b2c77192e5dc068f327209015659596c3eb85cda37524729622dd0968d53e';
+var cloudinary = require('cloudinary');
 
 var product = {
 
@@ -13,6 +15,7 @@ var product = {
 		{
 			brand      : req.body.brand,
 			category   : req.body.category,
+			photo      : 'my photo',
 			variations : req.body.variations
 		};
 
@@ -33,6 +36,7 @@ var product = {
 		{
 			brand      : req.body.brand,
 			category   : req.body.category,
+			photo      : 'my photo',
 			variations : req.body.vars
 		};
 
@@ -87,21 +91,69 @@ var product = {
 	  		});
 
 	  },
-		upload: function(req, res, next)
-		{
-     var path = '';
-     upload(req, res, function (err) {
-        if (err) {
-          // An error occurred when uploading
-          console.log(err);
-          return res.status(422).send("an Error occured")
-        }
-       // No error occured.
-        path = req.file.path;
-        return res.send("Upload Completed for "+path);
-  });
-}
+	upload: function(req, res, next)
+	{
+		
+		console.log('Sisi ni body' + req.body);
+				var storage = multer.diskStorage({
+					destination: function(request , file , callback)
+					{
+						callback(null , './server/uploads');
+					},
+					filename: function (request, file, callback) {
+				    callback(null, file.originalname)
+				  }
+				});
 
+
+		     var upload = multer({ //multer settings
+				    storage: storage
+				}).single('file');
+
+				upload(req,res,function(err){
+			    if(err){
+				 res.json({error_code:1,err_desc:err});
+				 return;
+			    }
+		//res.json({error_code:0,err_desc:null});
+					
+		//res.json({sent: req.body});
+					
+		var pathy = req.file.path;
+					
+		cloudinary.config({ 
+		  cloud_name: 'dxomvhu0p', 
+		  api_key: '811296612498678', 
+		  api_secret: 'j8BV1pcR-Jagxi63jCJSAMrImVM' 
+		});
+			cloudinary.v2.uploader.upload(pathy,
+			function(error, result) {
+				
+			 console.log('Iam the error' + error);	
+			 console.log('two ' + result.secure_url);
+				
+			 //res.status(200).json(result);
+				
+			 var fieldsToSet = { photo : result.secure_url };
+			 var options = { new : true };
+			
+			var id = mongoose.Types.ObjectId(req.params.id);
+				
+			req.app.db.models.Product.update(
+				{ _id: id, "variations.packsize" : req.body.prodName},
+				{ $set: { "variations.$.photo" : result.secure_url }},
+				function(err , docs){
+					if(err)
+				{
+					return next(err);
+				}
+				 res.status(200).json(docs);
+				});
+				
+			 }); 
+		}); 
+
+	}
 
 }
 module.exports = product;

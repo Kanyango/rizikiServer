@@ -26,7 +26,7 @@ require('./models')(app, mongoose);
 
 app.set('port' , config.port);
 
-app.use(express.static(__dirname + '/rizikiAdmin/src'));
+//app.use(express.static(__dirname + '/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
@@ -50,7 +50,6 @@ require('./passport')(app , passport);
 
 require('./routes')(app , passport);
 
-app.server.listen(app.config.port , function(){
+app.server.listen(process.env.PORT || 8300);
 
-});
 console.log('Process ' + process.pid + ' is listening to all incoming requests');

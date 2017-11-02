@@ -8,13 +8,14 @@ var order = {
 	{
 		var fieldsToSet = 
 		{
+			user       : req.payload._id,
 			order_no   : req.body.order_no,
 			from	   : req.body.from,
-			to	  	   : req.body.to, 
+			//to	   : req.body.to, 
 			products   : req.body.products,
 			total      : req.body.total,
 			status     : req.body.stats,
-			delivery   : req.body.delivery,
+			//delivery   : req.body.delivery,
 			payment    : req.body.payment
 		};
 		
@@ -30,10 +31,10 @@ var order = {
 	},
 	update : function(req , res , next)
 	{
-		var id = req.body.id;
+		var id = req.params.id;
 		var fieldsToSet = 
 		{
-			status     : req.body.stats,
+			status     : 'received',
 		};
 
 		var options = { new : true };

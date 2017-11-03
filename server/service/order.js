@@ -54,7 +54,7 @@ var order = {
 	read : function(req , res , next)
 	{
 		
-		req.app.db.models.Order.find({},
+		req.app.db.models.Order.find({user: req.payload._id},
 		    function(err , docs)
 			{
 				if(err)

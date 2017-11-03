@@ -1,6 +1,6 @@
 {
-  "name": "rizikisever",
-  "version": "1.0.0",
+  "name": "rizikiserver",
+  "version": "1.0.2",
   "description": "admin server",
   "main": "app.js",
   "scripts": {

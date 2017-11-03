@@ -6,6 +6,8 @@ var order = {
 
 	create : function(req , res , next)
 	{
+		console.log(req);
+		
 		var fieldsToSet = 
 		{
 			user       : req.payload._id,

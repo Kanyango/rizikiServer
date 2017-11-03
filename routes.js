@@ -37,7 +37,7 @@ module.exports = function(app , passport)
     app.post('/session/create' ,  user.create);
     app.post('/login' ,  user.login);
     //app.put('/settings', auth , user.upsett);
-    //app.get('/settings', auth , user.readProfile);
+    app.get('/settings', auth , user.readProfile);
 
 
 

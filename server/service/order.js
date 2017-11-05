@@ -37,6 +37,7 @@ var order = {
 		var fieldsToSet = 
 		{
 			status     : 'received',
+			total_rec  : req.body.total_rec
 		};
 
 		var options = { new : true };

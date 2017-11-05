@@ -38,6 +38,7 @@ var order = {
 		{
 			status     : req.body.status,
 			products   : req.body.products,
+			total      : req.body.total
 		};
 
 		var options = { new : true };

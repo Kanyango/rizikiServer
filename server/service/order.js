@@ -36,7 +36,8 @@ var order = {
 		var id = req.params.id;
 		var fieldsToSet = 
 		{
-			status     : 'received'
+			status     : req.body.status,
+			products   : req.body.products,
 		};
 
 		var options = { new : true };

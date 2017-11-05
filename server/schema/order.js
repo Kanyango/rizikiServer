@@ -12,6 +12,7 @@ module.exports = function(app , mongoose)
 	from       : {name: String, phone: String},
 	//to	  	   : {type: mongoose.Schema.Types.ObjectId, ref: 'User'}, 
 	products   : [],
+	total_rec  : {type : String },
 	total      : {type: String},
 	status     : {type: String},
 	//delivery   : {type: String},

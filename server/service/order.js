@@ -66,6 +66,19 @@ var order = {
 				res.status(200).json(docs);
 			});
 	},
+	seller_read : function(req , res , next)
+	{
+		
+		req.app.db.models.Order.find({},
+		    function(err , docs)
+			{
+				if(err)
+				{
+					return next(err);
+				}
+				res.status(200).json(docs);
+			});
+	},
 	single : function(req , res , next)
 	{
 		var id = mongoose.Types.ObjectId(req.params.id);

@@ -22,7 +22,7 @@ module.exports = function(app , passport)
     app.get('/order/:id',  order.single);
     app.post('/order/', auth , order.create);
     app.put('/order/:id' , order.update);
-    app.get('/order/', auth , order.read);
+    app.get('/order/', auth , order.seller_read);
 
     app.delete('/product/:id'  ,  product.remove);
     app.put('/upload/:id'  ,  product.upload);

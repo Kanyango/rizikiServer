@@ -55,8 +55,9 @@ var order = {
 	  },
 	read : function(req , res , next)
 	{
+		var id = mongoose.Types.ObjectId(req.payload._id);
 		
-		req.app.db.models.Order.find({user: req.payload._id},
+		req.app.db.models.Order.find({user: id},
 		    function(err , docs)
 			{
 				if(err)
@@ -68,6 +69,7 @@ var order = {
 	},
 	seller_read : function(req , res , next)
 	{
+		var id = mongoose.Types.ObjectId(req.payload._id);
 		
 		req.app.db.models.Order.find({},
 		    function(err , docs)

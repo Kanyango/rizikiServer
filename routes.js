@@ -23,6 +23,7 @@ module.exports = function(app , passport)
     app.post('/order/', auth , order.create);
     app.put('/order/:id' , order.update);
     app.get('/order/', auth , order.seller_read);
+    app.get('/orders/', auth , order.read);
 
     app.delete('/product/:id'  ,  product.remove);
     app.put('/upload/:id'  ,  product.upload);

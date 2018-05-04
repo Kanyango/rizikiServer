@@ -9,7 +9,7 @@ module.exports = function(app , mongoose)
 	dateCreated: {type: Date, default: Date.now()},
 	//owner      : {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	brand      : String,
-	dist       : [],
+	dist       : {type: mongoose.Schema.Types.ObjectId, ref: 'Distributor' },
 	category   : String,
 	variations : []
 	});

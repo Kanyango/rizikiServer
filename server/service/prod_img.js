@@ -15,19 +15,19 @@ create: function(req, res, next)
 	{
 		//var id = mongoose.Types.ObjectId(req.params.id);
 
-		/*var storage = multer.diskStorage({
+		var storage = multer.diskStorage({
   // destination
 		  destination: function (req, file, cb) {
-		    cb(null, './uploads/')
+		    cb(null, '../uploads/')
 		  },
 		  filename: function (req, file, cb) {
 		    cb(null, file.originalname);
 		  }
-		});*/
+		});
 
-	/*var upload = multer({ //multer settings
+	var upload = multer({ //multer settings
                     storage: storage
-                }).single('photo');*/
+                }).single('photo');
 
 
 

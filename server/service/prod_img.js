@@ -18,7 +18,7 @@ create: function(req, res, next)
 		var storage = multer.diskStorage({
   // destination
 		  destination: function (req, file, cb) {
-		    cb(null, '../uploads/')
+		    cb(null, './uploads/')
 		  },
 		  filename: function (req, file, cb) {
 		    cb(null, file.originalname);
@@ -59,7 +59,7 @@ create: function(req, res, next)
 														res.status(200).json(docs);
 											 });
 
-						        //});
+						        });
 									});
 
 	},

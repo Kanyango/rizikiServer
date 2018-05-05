@@ -15,7 +15,7 @@ create: function(req, res, next)
 	{
 		//var id = mongoose.Types.ObjectId(req.params.id);
 
-		var storage = multer.diskStorage({
+		/*var storage = multer.diskStorage({
   // destination
 		  destination: function (req, file, cb) {
 		    cb(null, './uploads/')
@@ -23,7 +23,7 @@ create: function(req, res, next)
 		  filename: function (req, file, cb) {
 		    cb(null, file.originalname);
 		  }
-		});
+		});*/
 
 	var upload = multer({ //multer settings
                     storage: storage

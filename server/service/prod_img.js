@@ -11,7 +11,7 @@ var prodimg = {
   
 prod_img: function(req, res, next)
 	{
-		var id = mongoose.Types.ObjectId(req.params.id);
+		//var id = mongoose.Types.ObjectId(req.params.id);
 
 		var storage = multer.diskStorage({
   // destination

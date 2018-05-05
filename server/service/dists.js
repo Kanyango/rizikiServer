@@ -1,5 +1,5 @@
 
-use strict';
+'use strict';
 var mongoose = require('mongoose');
 
 
@@ -12,10 +12,10 @@ var dists = {
 		var fieldsToSet = 
 		{
 
-			biz_name   :  req.body.biz_name,
-      biz_mail    : req.body.biz_mail,
-      biz_phone  : req.body.biz_phone,
-      biz_password  : req.body.biz_password
+		      biz_name   :  req.body.biz_name,
+		      biz_mail    : req.body.biz_mail,
+		      biz_phone  : req.body.biz_phone,
+		      biz_password  : req.body.biz_password
 		};
 		
 		req.app.db.models.Distributor.create(fieldsToSet, 

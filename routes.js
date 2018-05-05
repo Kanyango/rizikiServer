@@ -27,10 +27,10 @@ module.exports = function(app , passport)
     app.get('/orders/', auth , order.read);
     
     app.get('/distributor/:id',  dists.single);
-    app.post('/distributor/',  , dists.create);
-    app.put('/distributor/:id' , dists.update);
-    app.get('/distributor/',  , dists.read);
-    app.delete('/distributor/',  , dists.remove);
+    app.post('/distributor/',   dists.create);
+    app.put('/distributor/:id',  dists.update);
+    app.get('/distributor/',  dists.read);
+    app.delete('/distributor/',   dists.remove);
 
     app.delete('/product/:id'  ,  product.remove);
     app.put('/upload/:id'  ,  product.upload);

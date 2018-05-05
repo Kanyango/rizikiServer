@@ -14,7 +14,7 @@ var order    = require('./server/service/order');
 var product  = require('./server/service/product');
 var trans    = require('./server/service/trans');
 var user     = require('./server/service/users');
-
+var dists     = require('./server/service/dists');
 
 module.exports = function(app , passport)
 {
@@ -24,6 +24,12 @@ module.exports = function(app , passport)
     app.put('/order/:id' , order.update);
     app.get('/order/', auth , order.seller_read);
     app.get('/orders/', auth , order.read);
+    
+    app.get('/distributor/:id',  dists.single);
+    app.post('/distributor/',  , dists.create);
+    app.put('/distributor/:id' , dists.update);
+    app.get('/distributor/',  , dists.read);
+    app.delete('/distributor/',  , dists.remove);
 
     app.delete('/product/:id'  ,  product.remove);
     app.put('/upload/:id'  ,  product.upload);

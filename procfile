@@ -1,2 +1,0 @@
-web: node cluster.js
-heroku config:add TZ="Africa/Nairobi"

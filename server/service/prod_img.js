@@ -15,7 +15,7 @@ create: function(req, res, next)
 	{
 		//var id = mongoose.Types.ObjectId(req.params.id);
 
-		/*var storage = multer.diskStorage({
+		var storage = multer.diskStorage({
   // destination
 		  destination: function (req, file, cb) {
 		    cb(null, '../uploads/')
@@ -27,18 +27,18 @@ create: function(req, res, next)
 
 	var upload = multer({ //multer settings
                     storage: storage
-                }).single('photo'); */
+                }).single('photo'); 
 
 
 
 							            //var fieldsToSet = { img : {data : fs.readFileSync(req.file.path, "base64"), contentType : 'img/png' } };
 
 
-	/*upload(req,res,function(err){*/
-						            //if(err){
-						                 //res.json({error_code:1,err_desc:err});
-						              //  return next(err);
-						            //}
+	upload(req,res,function(err){
+						            if(err){
+						                res.json({error_code:1,err_desc:err});
+						                return next(err);
+						            }
 						
 
 												 var pathy = req.file.path;

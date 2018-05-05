@@ -46,9 +46,9 @@ prod_img: function(req, res, next)
 											 });
 											 cloudinary.uploader.upload(pathy,
 											 function(result) {
-												  var fieldsToSet = { artwork : result.secure_url };
+												  var fieldsToSet = {title: result.original_filename , img_url : result.secure_url };
 													var options = { new: true };
-			req.app.db.models.Release.findByIdAndUpdate(id, fieldsToSet, options, function(err , docs){
+			req.app.db.models.ProdImage.create(fieldsToSet, options, function(err , docs){
 													if(err)
 											    	{
 											    		return next(err);

@@ -63,6 +63,20 @@ create: function(req, res, next)
 									});
 
 	},
+	read : function(req , res , next)
+	{
+		var id = mongoose.Types.ObjectId(req.payload._id);
+		
+		req.app.db.models.ProdImage.find({user: id},
+		    function(err , docs)
+			{
+				if(err)
+				{
+					return next(err);
+				}
+				res.status(200).json(docs);
+			});
+	},
 	remove : function(req , res , next)
 	{
 	  	req.app.db.models.ProdImage.findByIdAndRemove(req.params.id, 

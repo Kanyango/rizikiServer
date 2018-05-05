@@ -35,10 +35,11 @@ create: function(req, res, next)
 
 
 	/*upload(req,res,function(err){*/
-						            if(err){
+						            //if(err){
 						                 //res.json({error_code:1,err_desc:err});
-						                return next(err);
-						            }
+						              //  return next(err);
+						            //}
+						
 
 												 var pathy = req.file.path;
 												 cloudinary.config({

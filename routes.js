@@ -15,6 +15,7 @@ var product  = require('./server/service/product');
 var trans    = require('./server/service/trans');
 var user     = require('./server/service/users');
 var dists     = require('./server/service/dists');
+var prodimg     = require('./server/service/prod_img');
 
 module.exports = function(app , passport)
 {
@@ -36,7 +37,10 @@ module.exports = function(app , passport)
     app.post('/product'  , product.create);
     app.put('/product' , product.update);
     app.get('/product'  , product.read);
-
+    
+    app.post('/prodimage/' , prodimg.create);
+    app.delete('/prodimage/' , prodimg.remove);
+    
     app.get('/trans/:id'  ,  trans.single);
     app.post('/trans'  , trans.create);
     app.get('/trans'  , trans.read);

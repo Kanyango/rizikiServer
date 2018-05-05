@@ -1,11 +1,13 @@
 
 'use strict';
+
 var mongoose = require('mongoose');
 var multer = require('multer');
 var fs = require('fs');
 var path = require('path');
 var apikey   = '12f34bba9ea25cae365b6dc1b92fba2e881ee332213923f91dcd18e4c47540e6';
 var cloudinary = require('cloudinary');
+const https = require('https');
 
 var prodimg = {
   

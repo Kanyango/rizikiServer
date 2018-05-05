@@ -93,7 +93,8 @@ var order = {
 				}
 				res.status(200).json(docs);
 			});
-	}
+	},
+	
 	/*remove : function(req , res , next)
 	{
 

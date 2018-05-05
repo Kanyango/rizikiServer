@@ -25,9 +25,9 @@ create: function(req, res, next)
 		  }
 		});*/
 
-	var upload = multer({ //multer settings
+	/*var upload = multer({ //multer settings
                     storage: storage
-                }).single('photo');
+                }).single('photo');*/
 
 
 

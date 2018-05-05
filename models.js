@@ -7,4 +7,5 @@ module.exports = function(app , mongoose)
 	require('./server/schema/trans')(app , mongoose);
 	require('./server/schema/products')(app , mongoose);
 	require('./server/schema/dists')(app , mongoose);
+	require('./server/schema/prod_images')(app , mongoose);
 };

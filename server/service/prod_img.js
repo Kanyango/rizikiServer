@@ -9,7 +9,7 @@ var cloudinary = require('cloudinary');
 
 var prodimg = {
   
-prod_img: function(req, res, next)
+create: function(req, res, next)
 	{
 		//var id = mongoose.Types.ObjectId(req.params.id);
 
@@ -60,5 +60,16 @@ prod_img: function(req, res, next)
 									});
 
 	},
+	remove : function(req , res , next)
+	{
+	  	req.app.db.models.ProdImage.findByIdAndRemove(req.params.id, 
+	  		function(err , info){
+	  			if(err)
+	  			{
+	  				return next(err);
+	  			}
+	  			res.status(200).json(info);
+	  		});
+	  }
 }
 module.exports = prodimg;

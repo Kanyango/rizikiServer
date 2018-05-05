@@ -39,6 +39,7 @@ module.exports = function(app , passport)
     app.get('/product'  , product.read);
     
     app.post('/prodimage/' , prodimg.create);
+    app.get('/prodimage/' , prodimg.read);
     app.delete('/prodimage/' , prodimg.remove);
     
     app.get('/trans/:id'  ,  trans.single);

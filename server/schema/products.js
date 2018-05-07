@@ -7,7 +7,7 @@ module.exports = function(app , mongoose)
 	var productSchema = new mongoose.Schema({
 
 	dateCreated: {type: Date, default: Date.now()},
-	//owner      : {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+	user       : {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	name       : {type: mongoose.Schema.Types.ObjectId, ref: 'ProdImage'},
 	dist       : {type: mongoose.Schema.Types.ObjectId, ref: 'Distributor' },
 	category   : String,

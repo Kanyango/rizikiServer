@@ -79,7 +79,24 @@ var user = {
 	 			res.status(200).json(docs);
 	 		});
 	},
+	coverage : function(req , res , next)
+	{
+	 	var fieldsToSet = {
 
+	 		coverage : req.body.coverage,
+
+	 	};
+	 	var options = { new : true};
+
+	 	req.app.db.models.User.findByIdAndUpdate(req.payload._id,
+	 		fieldsToSet , options ,function(err , docs){
+	 			if(err)
+	 			{
+	 				return next(err);
+	 			}
+	 			res.status(200).json(docs);
+	 		});
+	},
 	readProfile : function(req  , res , next)
 	{
 		 if(!req.payload._id){

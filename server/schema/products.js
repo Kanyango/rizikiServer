@@ -8,9 +8,9 @@ module.exports = function(app , mongoose)
 
 	dateCreated: {type: Date, default: Date.now()},
 	user       : {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-	name       : {type: mongoose.Schema.Types.ObjectId, ref: 'ProdImage'},
-	dist       : {type: mongoose.Schema.Types.ObjectId, ref: 'Distributor' },
-	category   : String,
+	brand       : {type: String},
+	//dist       : {type: mongoose.Schema.Types.ObjectId, ref: 'Distributor' },
+	//category   : String,
 	variations : []
 	});
 	app.db.model('Product', productSchema);

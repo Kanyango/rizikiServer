@@ -86,7 +86,7 @@ var user = {
 		var id = mongoose.Types.ObjectId(req.payload._id); 
 	 	var fieldsToSet = {
 
-	 		coverage : req.body.locations
+	 		coverage : req.body
 
 	 	};
 	 	var options = { new : true};

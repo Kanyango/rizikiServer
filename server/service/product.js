@@ -13,6 +13,7 @@ var product = {
 	{
 		var fieldsToSet =
 		{
+			user       : req.payload._id,
 			brand      : req.body.brand,
 			category   : req.body.category,
 			photo      : 'my photo',

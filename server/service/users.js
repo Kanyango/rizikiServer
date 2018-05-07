@@ -81,6 +81,7 @@ var user = {
 	},
 	coverage : function(req , res , next)
 	{
+		var id = mongoose.Types.ObjectId(req.payload._id); 
 	 	var fieldsToSet = {
 
 	 		coverage : req.body.locations
@@ -88,8 +89,9 @@ var user = {
 	 	};
 	 	var options = { new : true};
 
-	 	req.app.db.models.User.findByIdAndUpdate(req.payload._id,
-	 		fieldsToSet , options ,function(err , docs){
+	 	req.app.db.models.User.update({_id : id},
+					      {$addToSet: { coverage: req.body.locations } },
+					      function(err , docs){
 	 			if(err)
 	 			{
 	 				return next(err);

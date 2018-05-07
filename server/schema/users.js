@@ -19,6 +19,7 @@ module.exports = function(app , mongoose)
 	    address  : String,
 	    bphone   : String,
 	    office   : String,
+	    coverage : [],
 	    website  : String,
 		timeCreated : {type: Date , default: Date.now},
 		

@@ -40,6 +40,7 @@ module.exports = function(app , passport)
     
     app.post('/prodimage/' , prodimg.create);
     app.get('/prodimage/' , prodimg.read);
+    app.get('/prodimage/:id', auth , prodimg.single);
     app.delete('/prodimage/' , prodimg.remove);
     
     app.get('/trans/:id'  ,  trans.single);

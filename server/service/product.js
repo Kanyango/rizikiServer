@@ -15,8 +15,6 @@ var product = {
 		{
 			user       : req.payload._id,
 			brand      : req.body.brand,
-			category   : req.body.category,
-			photo      : 'my photo',
 			variations : req.body.variations
 		};
 

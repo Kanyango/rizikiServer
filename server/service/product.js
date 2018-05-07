@@ -55,8 +55,9 @@ var product = {
 	  },
 	read : function(req , res , next)
 	{
-
-		req.app.db.models.Product.find({},
+		var id = mongoose.Types.ObjectId(req.payload._id);
+		
+		req.app.db.models.Product.find({user: id},
 		    function(err , docs)
 			{
 				if(err)

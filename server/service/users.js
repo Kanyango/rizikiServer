@@ -89,8 +89,8 @@ var user = {
 	 	};
 	 	var options = { new : true};
 
-	 	req.app.db.models.User.update({_id : id},
-					      {$addToSet: { coverage: req.body.locations } },
+	 	req.app.db.models.User.findByIdAndUpdate(id,
+					      fieldsToSet , options,
 					      function(err , docs){
 	 			if(err)
 	 			{

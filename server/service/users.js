@@ -83,7 +83,7 @@ var user = {
 	{
 	 	var fieldsToSet = {
 
-	 		coverage : req.body.coverage,
+	 		coverage : req.body.locations
 
 	 	};
 	 	var options = { new : true};

@@ -81,6 +81,8 @@ var user = {
 	},
 	coverage : function(req , res , next)
 	{
+		console.log(req.body);
+		
 		var id = mongoose.Types.ObjectId(req.payload._id); 
 	 	var fieldsToSet = {
 

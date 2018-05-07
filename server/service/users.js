@@ -27,7 +27,8 @@ var user = {
 		user.username = req.body.username;
 		//user.email = req.body.email;
 		user.phone = req.body.phone;
-		user.location =  req.body.location;
+		//user.location =  req.body.location;
+		user.bname =  req.body.bname;
 		user.setPassword(req.body.password)
 
 		user.save(function(err){

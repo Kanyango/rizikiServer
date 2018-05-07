@@ -32,11 +32,11 @@ module.exports = function(app , passport)
     app.get('/distributor/',  dists.read);
     app.delete('/distributor/',   dists.remove);
 
-    app.delete('/product/:id'  ,  product.remove);
-    app.put('/upload/:id'  ,  product.upload);
-    app.post('/product'  , product.create);
-    app.put('/product' , product.update);
-    app.get('/product'  , product.read);
+    app.delete('/product/:id', auth  ,  product.remove);
+    app.put('/upload/:id', auth  ,  product.upload);
+    app.post('/product', auth  , product.create);
+    app.put('/product', auth , product.update);
+    app.get('/product', auth  , product.read);
     
     app.post('/prodimage/' , prodimg.create);
     app.get('/prodimage/' , prodimg.read);

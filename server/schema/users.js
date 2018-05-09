@@ -14,15 +14,15 @@ module.exports = function(app , mongoose)
 		phone    : {type: String , unique: true},
 		email    : String,
 		bname    : String,
-		loc_lat  : String,
-		loc_lng  : String,
-		//industry : String,
-		    location : String,
-		    address  : String,
-		    bphone   : String,
-		    office   : String,
-		    coverage : [],
-		    website  : String,
+		location : {
+				loc_lat  : String,
+				loc_lng  : String
+			   },
+		address  : String,
+		bphone   : String,
+		office   : String,
+		coverage : [],
+		website  : String,
 		timeCreated : {type: Date , default: Date.now},
 		
 		

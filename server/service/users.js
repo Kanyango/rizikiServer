@@ -101,6 +101,27 @@ var user = {
 	 			res.status(200).json(docs);
 	 		});
 	},
+	location: function(req, res, next)
+	{
+		var id = mongoose.Types.ObjectId(req.payload._id); 
+	 	var fieldsToSet = {
+
+	 				loc_lat : req.body.loc_lat,
+					loc_lng : req.body.loc_lng
+	 			};
+		
+	 	var options = { new : true};
+
+	 	req.app.db.models.User.findByIdAndUpdate(id,
+					      fieldsToSet , options,
+					      function(err , docs){
+	 			if(err)
+	 			{
+	 				return next(err);
+	 			}
+	 			res.status(200).json(docs);
+	 		});	
+	},
 	readProfile : function(req  , res , next)
 	{
 		 if(!req.payload._id){

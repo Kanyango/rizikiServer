@@ -49,6 +49,7 @@ module.exports = function(app , passport)
 
     app.post('/session/create' ,  user.create);
     app.post('/login' ,  user.login);
+    app.post('/location' ,  user.location);
     app.put('/coverage', auth , user.coverage);
     app.get('/settings', auth , user.readProfile);
 

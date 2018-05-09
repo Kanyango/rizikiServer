@@ -14,10 +14,8 @@ module.exports = function(app , mongoose)
 		phone    : {type: String , unique: true},
 		email    : String,
 		bname    : String,
-		location : {
-				loc_lat  : String,
-				loc_lng  : String
-			   },
+	        loc_lat  : String,
+	        loc_lng  : String,
 		address  : String,
 		bphone   : String,
 		office   : String,

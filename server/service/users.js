@@ -122,7 +122,7 @@ var user = {
 	 			res.status(200).json(docs);
 	 		});	
 	},
-	readProfile : function(req  , res , next)
+	/*readProfile : function(req  , res , next)
 	{
 		 if(!req.payload._id){
             res.status(401).json({
@@ -136,7 +136,7 @@ var user = {
                 res.status(200).json(user);
             });
         }
-	},
+	},*/
 	settings  : function(req , res , next)
 	{
 		req.app.db.models.User.findById(req.payload._id , 

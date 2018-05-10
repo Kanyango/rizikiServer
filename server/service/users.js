@@ -103,6 +103,10 @@ var user = {
 	},
 	location: function(req, res, next)
 	{
+		
+		console.log('Iam the payload',req.payload);
+		console.log('Iam the response body',req.body);
+		
 		var id = mongoose.Types.ObjectId(req.payload._id); 
 	 	var fieldsToSet = {
 

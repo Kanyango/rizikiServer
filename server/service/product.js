@@ -65,6 +65,20 @@ var product = {
 				res.status(200).json(docs);
 			});
 	},
+	read_all : function(req , res , next)
+	{
+		var id = mongoose.Types.ObjectId(req.payload._id);
+		
+		req.app.db.models.Product.find({},
+		    function(err , docs)
+			{
+				if(err)
+				{
+					return next(err);
+				}
+				res.status(200).json(docs);
+			});
+	},
 	single : function(req , res , next)
 	{
 		var id = mongoose.Types.ObjectId(req.params.id);

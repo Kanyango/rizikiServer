@@ -172,6 +172,18 @@ var user = {
 
 			res.status(200).json(info);
 		});
+	},
+	dists: function(req, res, next)
+	{
+		req.app.db.models.User.find({},
+		    function(err , docs)
+			{
+				if(err)
+				{
+					return next(err);
+				}
+				res.status(200).json(docs);
+			});
 	}
 
 };

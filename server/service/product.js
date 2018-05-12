@@ -67,7 +67,7 @@ var product = {
 	},
 	read_all : function(req , res , next)
 	{
-		var id = mongoose.Types.ObjectId(req.payload._id);
+		//var id = mongoose.Types.ObjectId(req.payload._id);
 		
 		req.app.db.models.Product.find({},
 		    function(err , docs)

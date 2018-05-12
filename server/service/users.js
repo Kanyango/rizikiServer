@@ -141,7 +141,7 @@ var user = {
             });
         }
 	},*/
-	settings  : function(req , res , next)
+	readProfile  : function(req , res , next)
 	{
 		req.app.db.models.User.findById(req.payload._id, 
 			function(err , info){

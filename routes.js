@@ -52,6 +52,8 @@ module.exports = function(app , passport)
     app.post('/login' ,  user.login);
     app.post('/location' , auth ,  user.location);
     app.put('/coverage', auth , user.coverage);
+    app.get('/distributors', auth, user.dists);
+    
     //app.get('/settings', auth , user.readProfile);
 
 

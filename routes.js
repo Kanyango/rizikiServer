@@ -33,6 +33,7 @@ module.exports = function(app , passport)
     app.delete('/distributor/',   dists.remove);
 
     app.delete('/product/:id', auth  ,  product.remove);
+    app.get('/distprod/:id', auth  ,  product.one);
     app.put('/upload/:id', auth  ,  product.upload);
     app.post('/product', auth  , product.create);
     app.put('/product', auth , product.update);

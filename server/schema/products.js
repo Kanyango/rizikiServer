@@ -10,7 +10,8 @@ module.exports = function(app , mongoose)
 	user       : {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	brand       : {type: String},
 	//dist       : {type: mongoose.Schema.Types.ObjectId, ref: 'Distributor' },
-	//category   : String,
+	category   : String,
+        sub_category: String,
 	variations : []
 	});
 	app.db.model('Product', productSchema);

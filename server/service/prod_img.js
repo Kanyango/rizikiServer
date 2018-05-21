@@ -92,7 +92,7 @@ create: function(req, res, next)
 	},
 	update : function(req , res , next)
 	{
-		var id = req.body.id;
+		var id = mongoose.Types.ObjectId(req.params.id);
 		var fieldsToSet =
 		{
 			category   : req.body.category,
@@ -101,8 +101,7 @@ create: function(req, res, next)
 
 		var options = { new : true };
 
-		req.app.db.models.ProdImage.findByIdAndUpdate(
-			mongoose.Types.ObjectId(id) , fieldsToSet ,
+		req.app.db.models.ProdImage.findByIdAndUpdate(id , fieldsToSet ,
 			options , function(err , docs){
 				if(err)
 		    	{

@@ -92,6 +92,8 @@ create: function(req, res, next)
 	},
 	update : function(req , res , next)
 	{
+		console.log(req.body);
+		 
 		var id = mongoose.Types.ObjectId(req.params.id);
 		var fieldsToSet =
 		{

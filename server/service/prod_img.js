@@ -90,6 +90,27 @@ create: function(req, res, next)
 				res.status(200).json(docs);
 			});
 	},
+	update : function(req , res , next)
+	{
+		var id = req.body.id;
+		var fieldsToSet =
+		{
+			category   : req.body.category,
+			sub_category : req.body.sub_category
+		};
+
+		var options = { new : true };
+
+		req.app.db.models.ProdImage.findByIdAndUpdate(
+			mongoose.Types.ObjectId(id) , fieldsToSet ,
+			options , function(err , docs){
+				if(err)
+		    	{
+		    		return next(err);
+		    	}
+			 res.status(200).json(docs);
+			});
+	  },
 	remove : function(req , res , next)
 	{
 	  	req.app.db.models.ProdImage.findByIdAndRemove(req.params.id, 

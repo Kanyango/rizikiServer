@@ -66,7 +66,7 @@ var adverts = {
 	{
 		//var id = mongoose.Types.ObjectId(req.payload._id);
 		
-		req.app.db.models.Product.find({},
+		req.app.db.models.Adverts.find({},
 		    function(err , docs)
 			{
 				if(err)

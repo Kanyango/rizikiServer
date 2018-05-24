@@ -36,17 +36,17 @@ var adverts = {
 	},
 	update : function(req , res , next)
 	{
-		var id = req.body.id;
+		var id = req.params.id;
 		var fieldsToSet =
 		{
-			btitle      : req.body.title,
-      status     : req.body.status,
-      owner      : req.body.owner,
-      cost       : req.body.cost,
-      position   : req.body.position,
-      //photo      : req.body.title,
-      start_date : req.body.start_date,
-      end_date   : req.body.end_date
+			title      : req.body.title,
+			      status     : req.body.status,
+			      owner      : req.body.owner,
+			      cost       : req.body.cost,
+			      position   : req.body.position,
+			      //photo      : req.body.title,
+			      start_date : req.body.start_date,
+			      end_date   : req.body.end_date
 		};
 
 		var options = { new : true };

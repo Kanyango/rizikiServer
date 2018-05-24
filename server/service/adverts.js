@@ -169,4 +169,4 @@ var adverts = {
 	}
 
 }
-module.exports = product;
+module.exports = adverts;

@@ -51,7 +51,7 @@ module.exports = function(app , passport)
     app.put('/adverts/:id' , adverts.update);
     app.get('/adverts/' , adverts.read);
     app.get('/adverts/:id' , adverts.single);
-    app.delete('/adverts/' , adverts.remove);
+    app.delete('/adverts/:id' , adverts.remove);
     app.put('/adverts/image/:id'  ,  adverts.upload);
     
     app.get('/trans/:id'  ,  trans.single);

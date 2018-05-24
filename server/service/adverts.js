@@ -91,8 +91,9 @@ var adverts = {
 	},
 	remove : function(req , res , next)
 	{
-
-	  	req.app.db.models.Adverts.findByIdAndRemove(req.params.id,
+		var id = mongoose.Types.ObjectId(req.params.id);
+		
+	  	req.app.db.models.Adverts.findByIdAndRemove(id,
 	  		function(err , info){
 	  			if(err)
 	  			{

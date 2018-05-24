@@ -105,66 +105,53 @@ var adverts = {
 	  },
 	upload: function(req, res, next)
 	{
-		
-		console.log('Sisi ni body' + req.body);
-    
-        var id = mongoose.Types.ObjectId(req.params.id);
-				var storage = multer.diskStorage({
-					destination: function(request , file , callback)
-					{
-						callback(null , './server/uploads');
-					},
-					filename: function (request, file, callback) {
-				    callback(null, file.originalname)
-				  }
-				});
+		var id = mongoose.Types.ObjectId(req.params.id);
 
-
-		     var upload = multer({ //multer settings
-				    storage: storage
-				}).single('file');
-
-				upload(req,res,function(err){
-			    if(err){
-				 res.json({error_code:1,err_desc:err});
-				 return;
-			    }
-		//res.json({error_code:0,err_desc:null});
-					
-		//res.json({sent: req.body});
-					
-		var pathy = req.file.path;
-					
-		cloudinary.config({ 
-		  cloud_name: 'dxomvhu0p', 
-		  api_key: '811296612498678', 
-		  api_secret: 'j8BV1pcR-Jagxi63jCJSAMrImVM' 
+		var storage = multer.diskStorage({
+  // destination
+		  destination: function (req, file, cb) {
+		    cb(null, './uploads/')
+		  },
+		  filename: function (req, file, cb) {
+		    cb(null, file.originalname);
+		  }
 		});
-			cloudinary.v2.uploader.upload(pathy,
-			function(error, result) {
-				
-			 console.log('Iam the error' + error);	
-			 console.log('two ' + result.secure_url);
-				
-			 //res.status(200).json(result);
-				
-			 var fieldsToSet = { photo : result.secure_url };
-			 var options = { new : true };
-			
-			var id = mongoose.Types.ObjectId(req.params.id);
-				
-			req.app.db.models.Adverts.findByIdAndUpdate(id,
-				fieldsToSet, options,
-				function(err , docs){
-					if(err)
-				{
-					return next(err);
-				}
-				 res.status(200).json(docs);
-				});
-				
-			 }); 
-		}); 
+
+	var upload = multer({ //multer settings
+                    storage: storage
+                }).single('photo');
+
+
+
+							            //var fieldsToSet = { img : {data : fs.readFileSync(req.file.path, "base64"), contentType : 'img/png' } };
+
+
+	upload(req,res,function(err){
+						            if(err){
+						                 //res.json({error_code:1,err_desc:err});
+						                return next(err);
+						            }
+
+												 var pathy = req.file.path;
+												 cloudinary.config({
+												 cloud_name: 'dxomvhu0p',
+												 api_key: '811296612498678',
+												 api_secret: 'j8BV1pcR-Jagxi63jCJSAMrImVM'
+											 });
+											 cloudinary.uploader.upload(pathy,
+											 function(result) {
+												  var fieldsToSet = { photo : result.secure_url };
+													var options = { new: true };
+			req.app.db.models.Adverts.findByIdAndUpdate(id, fieldsToSet, options, function(err , docs){
+													if(err)
+											    	{
+											    		return next(err);
+											    	}
+														res.status(200).json(docs);
+											 });
+
+						        });
+									});
 
 	}
 

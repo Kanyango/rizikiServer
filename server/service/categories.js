@@ -95,7 +95,42 @@ var cats = {
 						        });
 									});
 
-	}
+	},
+	single : function(req , res , next)
+	{
+		var id = mongoose.Types.ObjectId(req.params.id);
+		req.app.db.models.Categories.findById(id,
+		    function(err , docs)
+			{
+				if(err)
+				{
+					return next(err);
+				}
+				res.status(200).json(docs);
+			});
+	},
+	update : function(req , res , next)
+	{
+		console.log(req.body);
+		 
+		var id = mongoose.Types.ObjectId(req.params.id);
+		var fieldsToSet =
+		{
+			  cat_title: req.body.cat_title,
+			  sub_cats: req.body.sub_cats
+		};
+
+		var options = { new : true };
+
+		req.app.db.models.Categories.findByIdAndUpdate(id , fieldsToSet ,
+			options , function(err , docs){
+				if(err)
+		    	{
+		    		return next(err);
+		    	}
+			 res.status(200).json(docs);
+			});
+	  }
 
 }
 module.exports = cats;

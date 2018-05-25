@@ -98,7 +98,8 @@ create: function(req, res, next)
 		var fieldsToSet =
 		{
 			category   : req.body.category,
-			sub_category : req.body.sub_category
+			sub_category : req.body.sub_category,
+			brand        : req.body.brand
 		};
 
 		var options = { new : true };

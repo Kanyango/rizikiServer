@@ -57,7 +57,7 @@ module.exports = function(app , passport)
     
     app.get('/categories/',  cats.read);
     app.post('/categories/',   cats.create);
-    app.put('/categories/:id',  cats.upload);
+    app.put('/category/icon/:id',  cats.upload);
     
     
     app.get('/trans/:id'  ,  trans.single);

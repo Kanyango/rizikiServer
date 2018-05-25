@@ -16,6 +16,7 @@ var cats = {
 		var fieldsToSet =
 		{
 			cat_title      : req.body.cat_title,
+			sub_cats      : req.body.sub_cats,
 		};
 
 		req.app.db.models.Categories.create(fieldsToSet,

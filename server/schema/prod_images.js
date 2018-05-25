@@ -11,7 +11,8 @@ module.exports = function(app , mongoose){
 		img_title       : {type: String},
     		img_url        	: {type: String},
 		category        : {type: String},
-        	sub_category    : {type: String}
+        	sub_category    : {type: String},
+		brand           : {type: String}
 		
 	});
 	app.db.model('ProdImage' , prodImageSchema);

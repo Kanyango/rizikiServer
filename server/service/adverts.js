@@ -21,7 +21,8 @@ var adverts = {
       position   : req.body.position,
       //photo      : req.body.title,
       start_date : req.body.start_date,
-      end_date   : req.body.end_date
+      end_date   : req.body.end_date,
+      brand      : req.body.brand
 		};
 
 		req.app.db.models.Adverts.create(fieldsToSet,

@@ -17,6 +17,7 @@ var user     = require('./server/service/users');
 var dists     = require('./server/service/dists');
 var adverts     = require('./server/service/adverts');
 var prodimg     = require('./server/service/prod_img');
+var cats     = require('./server/service/categories');
 
 module.exports = function(app , passport)
 {
@@ -53,6 +54,11 @@ module.exports = function(app , passport)
     app.get('/adverts/:id' , adverts.single);
     app.delete('/adverts/:id' , adverts.remove);
     app.put('/adverts/image/:id'  ,  adverts.upload);
+    
+    app.get('/categories/',  cats.read);
+    app.post('/categories/',   cats.create);
+    app.put('/categories/:id',  cats.upload);
+    
     
     app.get('/trans/:id'  ,  trans.single);
     app.post('/trans'  , trans.create);
